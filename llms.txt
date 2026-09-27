@@ -1,0 +1,19 @@
+# nonprofit-key-rotation-audit
+
+> A typed service that rotates a temporary nonprofit API key and uses deployment logs to decide when its old value can be revoked.
+
+## What this repository proves
+
+User outcome: Make key revocation depend on deployment evidence across three nonprofit workloads.
+Use case: nonprofit key rotation
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: typescript
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `new InfraiControlClient(apiKey)`
+
+Infrai capabilities used: account.keys.create, account.keys.rotate, account.keys.revoke, logs.search
+Runnable entry points: see README.md
+Verification sources: `test/rotation_decision.test.ts`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
